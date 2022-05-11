@@ -57,6 +57,25 @@ formElement.addEventListener('submit', function(e){
 // });
 
 //in order to attach a click event listener to the li's which do not exist on the page yet, we can use EVENT-PROPOGATION 
+const ul = document.querySelector('ul');
+ul.addEventListener('click', function(e){
+
+   //the this keyword reps the object which owns the code which is currently running
+   //so this will give us back the ul consistently which is not what we wnat
+      // console.log(this);
+
+      //log out the event object
+   // console.log(e);
+   
+   //As long as we clicked on the icon then:
+   if(e.target.localName === "i") {
+      console.log('checkbox was clicked');
+      
+      // toggle between checked/unchecked (AKA done vs not done) on the target element
+      e.target.classList.toggle('fa-square-check');
+      e.target.classList.toggle('fa-square');
+   }
+});
 
 // BONUS LEVEL:
 // add a "Reset" button which clears all of the TO DOs
