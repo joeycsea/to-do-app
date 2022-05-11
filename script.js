@@ -74,11 +74,25 @@ ul.addEventListener('click', function(e){
       // toggle between checked/unchecked (AKA done vs not done) on the target element
       e.target.classList.toggle('fa-square-check');
       e.target.classList.toggle('fa-square');
+      
+      // for adding the text-muted color when checked:
+      e.target.parentNode.classList.toggle('text-muted');
    }
 });
 
 // BONUS LEVEL:
 // add a "Reset" button which clears all of the TO DOs
+   //add button below h1
+   const clearButton = document.querySelector('button');
+
+   clearButton.addEventListener('click', function (e) {
+      const checkedItems = document.querySelectorAll('.text-muted');
+      for (i = 0; i < checkedItems.length; i++) {
+         checkedItems[i].remove();
+      }
+   });
+
+
 // add an "Edit task" button
 // add a "Remove task" button to each task
 // add a congratulations alert when all of the existing TO DOs are checked off 
